@@ -40,24 +40,34 @@
         <h1>Javascript Practice Project List</h1>
 
         <ol id="list" style="list-style-type:decimal">
-            <li><a id="GuessNumber" class="" href="javascript:loadContent('GuessNumber');">GuessNumber</a></li>
-            <li><a id="RandomWalk" class="" href="javascript:loadContent('RandomWalk');">RandomWalk</a></li>
-            <li><a id="PacMan" class="active" href="javascript:loadContent('PacMan');">PacMan</a></li>
+            <li><a id="GuessNumber" class="" href="javascript:loadContent('GuessNumber.html');">GuessNumber</a></li>
+            <li><a id="RandomWalk" class="" href="javascript:loadContent('RandomWalk.html');">RandomWalk</a></li>
+            <li><a id="PacMan" class="" href="javascript:loadContent('PacMan.html');">PacMan</a></li>
+            <li><a id="BostonData" class="active" href="javascript:loadContent('BostonData/index.html');">BostonData</a></li>
         </ol>
 
         <div id="mainContent" style="margin-left:25%;padding:1px 16px;height:1000px;">
-            <object type="text/html" data="PacMan.html" width="100%" height="100%"></object>
+            <object type="text/html" data="BostonData/index.html" width="100%" height="100%"></object>
         </div>
 
         <script>
-            function loadContent(pageName) { 
+            function loadContent(pagePath) { 
                 let listItems = document.getElementById('list').children;
                 for (let i = 0; i < listItems.length; i++) {
                     //console.log(listItems[i].innerHTML);
                     listItems[i].firstChild.className = '';
                 }
-                document.getElementById(pageName).className = 'active';
-                document.getElementById("mainContent").innerHTML = '<object type="text/html" data="' + pageName + '.html" width="100%" height="100%"></object>'
+                let pageID = '';
+                let slashIndex = pagePath.indexOf('/');
+                if (slashIndex > -1) {
+                    pageID = pagePath.slice(0, slashIndex);
+                } else {
+                    let dotIndex = pagePath.indexOf('.');
+                    pageID = pagePath.slice(0, dotIndex);
+                }
+                
+                document.getElementById(pageID).className = 'active';
+                document.getElementById("mainContent").innerHTML = '<object type="text/html" data="' + pagePath + '" width="100%" height="100%"></object>'
             }
         </script>
 
