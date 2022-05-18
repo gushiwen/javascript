@@ -2,19 +2,22 @@
 <html>
     <head>
         <style type="text/css">
+            html {
+                height: 100%;
+            }
             body {
-                margin: 0;
+                margin: 0px auto;
+                overflow: hidden;
+                height: 100%; 
+                box-sizing: border-box;
             }
 
             ol {
                 list-style-type: none;
-                margin: 0;
-                padding: 0;
-                width: 25%;
-                background-color: #f1f1f1;
-                position: fixed;
+                margin: 0px;
+                padding: 0px;
                 height: 100%;
-                overflow: auto;
+                overflow: hidden;
             }
 
             li a {
@@ -33,21 +36,36 @@
                 background-color: #555;
                 color: white;
             }
+
+            .nav {
+                background-color: #f1f1f1;
+                padding: 0 6px;
+                position: fixed;
+                width: 25%;
+            }
+            #mainContent {
+                margin-left: 25%;
+                padding: 2px 16px;
+                height: 100%;
+            }
         </style>
         <title>Javascript Practice</title>
     </head>
     <body>
-        <h1>Javascript Practice Project List</h1>
+        <div class="nav">
+            <h4>Javascript Practice Project List</h4>
+            <ol id="list">
+                <li><a id="GuessNumber" class="" href="javascript:loadContent('GuessNumber.html');">Guess Number</a></li>
+                <li><a id="RandomWalk" class="" href="javascript:loadContent('RandomWalk.html');">Random Walk</a></li>
+                <li><a id="PacMan" class="" href="javascript:loadContent('PacMan.html');">Pac Man</a></li>
+                <li><a id="BostonData" class="" href="javascript:loadContent('BostonData/index.html');">Boston Data</a></li>
+                <li><a id="FilterExercise" class="active" href="javascript:loadContent('FilterExercise/index.html');">Filter Exercise</a></li>
+                <li><a id="SortExercise" class="" href="javascript:loadContent('SortExercise/index.html');">Sort Exercise</a></li>
+            </ol>
+        </div>
 
-        <ol id="list" style="list-style-type:decimal">
-            <li><a id="GuessNumber" class="" href="javascript:loadContent('GuessNumber.html');">GuessNumber</a></li>
-            <li><a id="RandomWalk" class="" href="javascript:loadContent('RandomWalk.html');">RandomWalk</a></li>
-            <li><a id="PacMan" class="" href="javascript:loadContent('PacMan.html');">PacMan</a></li>
-            <li><a id="BostonData" class="active" href="javascript:loadContent('BostonData/index.html');">BostonData</a></li>
-        </ol>
-
-        <div id="mainContent" style="margin-left:25%;padding:1px 16px;height:1000px;">
-            <object type="text/html" data="BostonData/index.html" width="100%" height="100%"></object>
+        <div id="mainContent">
+            <object type="text/html" data="FilterExercise/index.html" width="100%" height="100%"></object>
         </div>
 
         <script>
