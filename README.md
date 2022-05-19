@@ -4,7 +4,7 @@
 This repository lists all the javascript projects that I'm practising when learning MIT MERN Full Stack course.
 
 ### Demonstration:
-You can view https://gushiwen.github.io/js-practice/ for the list of demonstrations.
+You can view https://gushiwen.github.io/javascript/ for the list of demonstrations.
 
 ### Knowledge related:
 The projects have been added following the order of learning sequence, 
