@@ -65,12 +65,32 @@
         </div>
 
         <div id="mainContent">
-            <object type="text/html" data="FilterExercise/index.html" width="100%" height="100%"></object>
+            <object type="text/html" data="" width="100%" height="100%"></object>
         </div>
 
         <script>
+            // console.log(window.location.href);
+            // console.log(window.location.protocol);
+            // console.log(window.location.hostname);
+            // console.log(window.location.pathname);
+            // console.log(window.location.search);
+
+            let pageIndex = window.location.href.lastIndexOf('index.html');
+            let webPath = window.location.href.slice(0, pageIndex);
+
+            // retreive items in ordered list
+            let listItems = document.getElementById('list').children;
+            // retreive href of (4+1)th link in navigation bar
+            let demoPageHref = listItems[4].firstChild.href;
+            // pattern for content between ' '
+            let pattern = /(?<=').*?(?=')/;
+            // PacMan.html or SortExercise/index.html
+            let demoPage = demoPageHref.match(pattern)[0];
+            // concatenate full url for demo page
+            let demoPageFullUrl = webPath + demoPage;
+            document.getElementById("mainContent").innerHTML = '<object type="text/html" data="' + demoPageFullUrl + '" width="100%" height="100%"></object>'
+
             function loadContent(pagePath) { 
-                let listItems = document.getElementById('list').children;
                 for (let i = 0; i < listItems.length; i++) {
                     //console.log(listItems[i].innerHTML);
                     listItems[i].firstChild.className = '';
@@ -85,7 +105,7 @@
                 }
                 
                 document.getElementById(pageID).className = 'active';
-                document.getElementById("mainContent").innerHTML = '<object type="text/html" data="' + pagePath + '" width="100%" height="100%"></object>'
+                document.getElementById("mainContent").innerHTML = '<object type="text/html" data="' + webPath +pagePath + '" width="100%" height="100%"></object>'
             }
         </script>
 
