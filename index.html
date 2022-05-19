@@ -75,8 +75,11 @@
             // console.log(window.location.pathname);
             // console.log(window.location.search);
 
+            let webPath = window.location.href;
             let pageIndex = window.location.href.lastIndexOf('index.html');
-            let webPath = window.location.href.slice(0, pageIndex);
+            if (pageIndex > -1) {
+                webPath = window.location.href.slice(0, pageIndex);
+            }
 
             // retreive items in ordered list
             let listItems = document.getElementById('list').children;
